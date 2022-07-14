@@ -1,0 +1,41 @@
+<form [formGroup]="registrationForm" >
+    <div>
+      <label>Username</label>
+      <input class="form-control" formControlName="Name">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input class="form-control" formControlName="FullName">
+    </div>
+    <div>
+      <label>Email</label>
+      <input class="form-control" type="email" formControlName="Email">
+    </div>
+    <div>
+      <label>Password</label>
+      <input class="form-control" type="password" formControlName="Password">
+    </div>
+    <div>
+        <label>RepeatPassword</label>
+        <input class="form-control" type="password" formControlName="RepeatedPassword">
+      </div>
+    <div>
+      <label>Address</label>
+      <input class="form-control" formControlName="Address">
+    </div>
+    <div>
+      <label>Birth Date</label>
+      <input class="form-control" type="date" formControlName="BirthDate">
+    </div>
+    <div>
+        User Type:
+        <select formControlName="UserType">
+            <option value="0">Customer</option>
+            <option value="1">Admin</option>
+            <option value="2">Postal</option>
+        </select>
+    </div>
+    <button (click)="onSubmit()">Register</button>
+  </form>
+  <a routerLink="login" class="btn btn-link">Login</a>
+    

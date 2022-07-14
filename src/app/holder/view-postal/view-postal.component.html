@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>FullName</th>
+        <th>Email</th>
+        <th>IsVerified</th>
+        <th>Verify</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of postalList">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.fullName}}</td>
+            <td>{{item.email}}</td>    
+            <td>{{item.isVerified}}</td>
+        </tr>
+    </tbody>
+</table>
