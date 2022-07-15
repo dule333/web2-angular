@@ -40,7 +40,9 @@ export class CreateOrderComponent implements OnInit {
     let orderDto:OrderDto = new OrderDto();
     orderDto.comment = this.orderForm.controls['comment'].value;
     orderDto.address = this.orderForm.controls['address'].value;
-    orderDto.products?.set(Number(this.orderForm.controls['id'].value), Number(this.orderForm.controls['quantity'].value));
+    let kvp: {[key: number]: number}  = {};
+    kvp[Number(this.orderForm.controls['id'].value)] = Number(this.orderForm.controls['quantity'].value)
+    orderDto.orderProducts = kvp;
     if(localStorage.getItem('token') != null)
     this.service.createOrder(orderDto, this.authService.decodeToken(localStorage.getItem('token')!).Id!).subscribe((data:any) => {
       localStorage.setItem("currentOrder", data.id)

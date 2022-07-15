@@ -6,6 +6,6 @@ export class OrderDto {
     totalPrice:number | null = 0;
     deliveryStatus: number | null = 0;
     endTime: Date | null = new Date;
-    products: Map<number, number>|null = new Map<number, number>();
+    orderProducts: {[key: number]: number}|null = {};
     address: string|null="";
 }

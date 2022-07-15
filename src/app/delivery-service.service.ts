@@ -42,7 +42,7 @@ modifyUser(data:RegisterDto){
   }
 
   addProduct(productDto:ProductDto) : any {
-    return this.http.post(environment.serverURL + 'Products', ProductDto);
+    return this.http.post(environment.serverURL + 'Products', productDto);
   }
 
   createOrder(orderDto:OrderDto, id:number) : any {
