@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 import { DeliveryServiceService } from '../delivery-service.service';
 import { RegisterDto } from '../shared/models/registerDto.model';
 
@@ -23,10 +24,12 @@ export class ProfileComponent implements OnInit {
 
   regInit:RegisterDto = new RegisterDto;
 
-  constructor(public router: Router, public service: DeliveryServiceService, private fb:FormBuilder, private toastr:ToastrService) { }
+  constructor(public router: Router, public service: DeliveryServiceService, private fb:FormBuilder, private toastr:ToastrService, private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.service.getUser(Number(localStorage.getItem('id'))).subscribe((data:RegisterDto) =>
+    if(localStorage.getItem('token')==null)
+      this.router.navigateByUrl('login');
+    this.service.getUser(this.authService.decodeToken(localStorage.getItem('token')!).Id!).subscribe((data:RegisterDto) =>
       {
         this.regInit = data;
       }

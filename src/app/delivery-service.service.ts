@@ -30,8 +30,8 @@ modifyUser(data:RegisterDto){
     return this.http.post(environment.serverURL + 'Users', data);
   }
 
-  loginUser(data:any) {
-    return this.http.post<any>(environment.serverURL + "Users/login",data);
+  loginUser(data:any):Observable<string> {
+    return this.http.post(environment.serverURL + "Users/login", data, {responseType: 'text'});
   }
   getPostals():Observable<PostalDto[]> {
     return this.http.get<PostalDto[]>(environment.serverURL + 'Users')

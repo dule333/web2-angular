@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 import { DeliveryServiceService } from '../delivery-service.service';
 import { OrderDto } from '../shared/models/orderDto.model';
 
@@ -13,10 +14,10 @@ export class ViewOrdersComponent implements OnInit {
 
   orderList:OrderDto[] = [];
 
-  constructor(private toastr:ToastrService, private service:DeliveryServiceService) { }
+  constructor(private toastr:ToastrService, private service:DeliveryServiceService, private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.service.getOrders(Number(localStorage.getItem('id'))).subscribe(
+    this.service.getOrders(this.authService.decodeToken(localStorage.getItem('token')!).Id!).subscribe(
       (data:OrderDto[])=>{
         this.orderList = data;
       },

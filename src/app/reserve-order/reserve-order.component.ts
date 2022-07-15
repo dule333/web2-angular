@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 import { DeliveryServiceService } from '../delivery-service.service';
 import { OrderDto } from '../shared/models/orderDto.model';
 
@@ -12,7 +13,7 @@ import { OrderDto } from '../shared/models/orderDto.model';
 export class ReserveOrderComponent implements OnInit {
   orderList:OrderDto[] = [];
 
-  constructor(private toastr:ToastrService, private service:DeliveryServiceService, private router:Router) { }
+  constructor(private toastr:ToastrService, private service:DeliveryServiceService, private router:Router, private authService:AuthService) { }
 
   ngOnInit(): void {
     this.service.getFreeOrdersPostal().subscribe(
@@ -25,7 +26,7 @@ export class ReserveOrderComponent implements OnInit {
     );
   }
   Reserve(id:number): void {
-    this.service.reserveOrder(id, Number(localStorage.getItem('id'))).subscribe(() =>
+    this.service.reserveOrder(id, this.authService.decodeToken(localStorage.getItem('token')!).Id!).subscribe(() =>
       {
         localStorage.setItem('currentOrder', id.toString());
         this.router.navigateByUrl('/currOrder');

@@ -23,8 +23,12 @@ import { ViewOrdersPostalComponent } from './view-orders-postal/view-orders-post
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { ViewOrdersAdminComponent } from './view-orders-admin/view-orders-admin.component';
 import { ReserveOrderComponent } from './reserve-order/reserve-order.component';
-
-
+import {JwtModule} from '@auth0/angular-jwt';
+import { AuthInterceptor } from './auth.interceptor';
+import { DashboardComponent } from './dashboard/dashboard.component';
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,8 @@ import { ReserveOrderComponent } from './reserve-order/reserve-order.component';
     ViewOrdersPostalComponent,
     ViewOrderComponent,
     ViewOrdersAdminComponent,
-    ReserveOrderComponent
+    ReserveOrderComponent,
+    DashboardComponent
   ],
   imports: [
     FormsModule,
@@ -48,9 +53,20 @@ import { ReserveOrderComponent } from './reserve-order/reserve-order.component';
     ToastrModule.forRoot({progressBar:true}),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: environment.allowedDomains
+      }
+    })
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

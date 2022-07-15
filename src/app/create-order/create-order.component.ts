@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 import { DeliveryServiceService } from '../delivery-service.service';
 import { OrderDto } from '../shared/models/orderDto.model';
 import { ProductDto } from '../shared/models/productDto.model';
@@ -13,7 +14,7 @@ import { ProductDto } from '../shared/models/productDto.model';
 })
 export class CreateOrderComponent implements OnInit {
   productList:ProductDto[] = [];
-  constructor(public router: Router, public service: DeliveryServiceService, private toastr: ToastrService) { }
+  constructor(public router: Router, public service: DeliveryServiceService, private toastr: ToastrService, private authService:AuthService) { }
   
   orderForm = new FormGroup({
     id : new FormControl(""),
@@ -24,7 +25,7 @@ export class CreateOrderComponent implements OnInit {
   
   ngOnInit(): void {
     
-    if(localStorage.getItem('currentOrder') != '')
+    if(!(localStorage.getItem('currentOrder') == '' || localStorage.getItem('currentOrder') == null))
       this.router.navigateByUrl('currOrder');
    this.service.getProducts().subscribe(
       (data:ProductDto[])=>{
@@ -40,10 +41,10 @@ export class CreateOrderComponent implements OnInit {
     orderDto.comment = this.orderForm.controls['comment'].value;
     orderDto.address = this.orderForm.controls['address'].value;
     orderDto.products?.set(Number(this.orderForm.controls['id'].value), Number(this.orderForm.controls['quantity'].value));
-    console.log(orderDto.products)
-    
-    this.service.createOrder(orderDto, 1).subscribe((data:any) => {
+    if(localStorage.getItem('token') != null)
+    this.service.createOrder(orderDto, this.authService.decodeToken(localStorage.getItem('token')!).Id!).subscribe((data:any) => {
       localStorage.setItem("currentOrder", data.id)
+      this.router.navigateByUrl('currOrder');
     }
     )
 

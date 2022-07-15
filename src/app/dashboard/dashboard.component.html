@@ -1,0 +1,12 @@
+<button *ngIf="role==-1" (click)="Login()">Login</button>
+<button *ngIf="role==-1" (click)="Register()">Register</button>
+<button *ngIf="role!=-1" (click)="Logout()">Logout</button>
+<button *ngIf="role==1" (click)="Product()">Add Product</button>
+<button *ngIf="role==0" (click)="CreateOrder()">Create Order</button>
+<button *ngIf="role==0 || role == 2" (click)="Order()">My Order</button>
+<button *ngIf="role==0" (click)="OrdersC()">Orders</button>
+<button *ngIf="role==2" (click)="OrdersP()">Free Orders</button>
+<button *ngIf="role==2" (click)="OrdersPH()">Orders</button>
+<button *ngIf="role==1" (click)="OrdersA()">Orders</button>
+<button *ngIf="role!=-1" (click)="Profile()">Profile</button>
+<button *ngIf="role==1" (click)="Verification()">Verification</button>

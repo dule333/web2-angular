@@ -49,7 +49,6 @@ export class ViewOrderComponent implements OnInit {
         this.item = data;
         var date1 = new Date();
         var date2 = this.item.endTime?.toString();
-        console.log(date2);
         this.timeLeft = Date.parse(date2!) - date1.getTime();
         this.timeLeft = this.timeLeft / 1000;  
 

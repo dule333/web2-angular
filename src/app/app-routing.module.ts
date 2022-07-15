@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddProductComponent } from './add-product/add-product.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { ViewPostalComponent } from './holder/view-postal/view-postal.component';
 import { LoginComponent } from './login/login.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'currOrder', component:ViewOrderComponent},
   {path:'adminOrders', component:ViewOrdersAdminComponent},
   {path:'postals', component:ViewPostalComponent},
-  {path:'freeOrders', component:ReserveOrderComponent}
+  {path:'freeOrders', component:ReserveOrderComponent},
+  {path:'product', component:AddProductComponent} 
 ];
 
 @NgModule({
