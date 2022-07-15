@@ -14,7 +14,7 @@ export class ViewPostalComponent implements OnInit {
   postalList:PostalDto[] = [];
 
   constructor(private toastr:ToastrService, private service:DeliveryServiceService) { }
-
+  status = VerificationProgress;
   ngOnInit(): void {
     this.service.getPostals().subscribe(
       (data:PostalDto[])=>{
@@ -26,4 +26,16 @@ export class ViewPostalComponent implements OnInit {
     );
   }
 
+  Verify(postalId:number): void {
+    this.service.verify(postalId, true).subscribe();
+  }
+  Decline(postalId:number): void {
+    this.service.verify(postalId, false).subscribe();
+  }
+}
+
+export enum VerificationProgress{
+        Processing,
+        Accepted,
+        Declined
 }

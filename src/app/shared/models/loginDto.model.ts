@@ -1,4 +1,4 @@
 export class LoginDto{
-    email :string | null ="";
-    password:string | null =""; 
+    Email :string | null ="";
+    Password:string | null =""; 
 }

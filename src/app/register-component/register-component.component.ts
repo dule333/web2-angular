@@ -31,7 +31,7 @@ export class RegisterComponentComponent implements OnInit {
 
   onSubmit(){
     let regModel = new RegisterDto();
-    regModel.birthDate = this.registrationForm.controls['BirthDate'].value
+    regModel.birthDate = (this.registrationForm.controls['BirthDate'].value)
     regModel.address = this.registrationForm.controls['Address'].value
     regModel.email = this.registrationForm.controls['Email'].value
     regModel.fullName = this.registrationForm.controls['FullName'].value

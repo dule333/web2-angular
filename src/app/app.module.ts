@@ -15,6 +15,14 @@ import { DeliveryServiceService } from './delivery-service.service';
 import { HolderComponent } from './holder/holder.component';
 import { ViewPostalComponent } from './holder/view-postal/view-postal.component';
 import { LoginComponent } from './login/login.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { CreateOrderComponent } from './create-order/create-order.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
+import { ViewOrdersPostalComponent } from './view-orders-postal/view-orders-postal.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
+import { ViewOrdersAdminComponent } from './view-orders-admin/view-orders-admin.component';
+import { ReserveOrderComponent } from './reserve-order/reserve-order.component';
 
 
 @NgModule({
@@ -23,7 +31,15 @@ import { LoginComponent } from './login/login.component';
     RegisterComponentComponent,
     HolderComponent,
     ViewPostalComponent,
-    LoginComponent
+    LoginComponent,
+    AddProductComponent,
+    CreateOrderComponent,
+    ProfileComponent,
+    ViewOrdersComponent,
+    ViewOrdersPostalComponent,
+    ViewOrderComponent,
+    ViewOrdersAdminComponent,
+    ReserveOrderComponent
   ],
   imports: [
     FormsModule,

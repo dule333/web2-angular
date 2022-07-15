@@ -1,0 +1,6 @@
+<form [formGroup]="addProductForm">
+    <input class="form-control" type="text" formControlName="Name" placeholder="Name">
+    <input  type="number" class="form-control"  formControlName="UnitPrice" placeholder="UnitPrice">
+    <input type="text" formControlName="Ingredients" placeholder="Ingredients">
+    <button class="btn-block" type="submit" (click)="onSubmit()">Add product</button>
+</form>

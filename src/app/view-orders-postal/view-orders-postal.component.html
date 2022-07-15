@@ -1,0 +1,18 @@
+Delivered Orders:
+<br>
+<table>
+    <thead>
+        <th>Comment</th>
+        <th>TotalPrice</th>
+        <th>Address</th>
+        <th>EndTime</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of orderList">
+            <td>{{item.comment}}</td>
+            <td>{{item.totalPrice}}</td>
+            <td>{{item.address}}</td>
+            <td>{{item.endTime}}</td>
+        </tr>
+    </tbody>
+</table>

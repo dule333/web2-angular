@@ -1,0 +1,20 @@
+<form [formGroup]="registrationForm" >
+    <div>
+      <label>Username</label>
+      <input class="form-control" formControlName="Name" [ngModel]="regInit.name">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input class="form-control" formControlName="FullName" [ngModel]="regInit.fullName">
+    </div>
+    <div>
+      <label>Email</label>
+      <input class="form-control" type="email" formControlName="Email" [ngModel]="regInit.email">
+    </div>
+    <div>
+      <label>Address</label>
+      <input class="form-control" formControlName="Address" [ngModel]="regInit.address">
+    </div>
+    <button (click)="onSubmit()">Register</button>
+  </form>
+    

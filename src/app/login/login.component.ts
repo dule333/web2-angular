@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     let loginDto:LoginDto = new LoginDto();
-    loginDto.email = this.loginForm.controls['email'].value
-    loginDto.password = this.loginForm.controls['password'].value
+    loginDto.Email = this.loginForm.controls['email'].value
+    loginDto.Password = this.loginForm.controls['password'].value
     this.service.loginUser(loginDto).subscribe((data) => {
-      
+      localStorage.setItem('id',data )
     },
     error => {
       this.toastr.error('Invalid login data');
