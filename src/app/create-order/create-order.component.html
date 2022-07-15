@@ -1,5 +1,5 @@
 <form [formGroup]="orderForm" >
-<table>
+<table class="table">
     <thead>
         <th>Name</th>
         <th>UnitPrice</th>
@@ -18,7 +18,7 @@
         </tr>
     </tbody>
 </table>
-<input type="text" formControlName="comment" placeholder="Comment"><br>
-<input type="text" formControlName="address" placeholder="Address"><br>
-    <button (click)="onSubmit()">Order</button>
+<input type="text" class="form-control" formControlName="comment" placeholder="Comment"><br>
+<input type="text" class="form-control" formControlName="address" placeholder="Address"><br>
+    <button class="btn btn-dark" (click)="onSubmit()">Order</button>
   </form>

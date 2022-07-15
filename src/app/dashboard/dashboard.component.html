@@ -1,12 +1,14 @@
-<button *ngIf="role==-1" (click)="Login()">Login</button>
-<button *ngIf="role==-1" (click)="Register()">Register</button>
-<button *ngIf="role!=-1" (click)="Logout()">Logout</button>
-<button *ngIf="role==1" (click)="Product()">Add Product</button>
-<button *ngIf="role==0" (click)="CreateOrder()">Create Order</button>
-<button *ngIf="role==0 || role == 2" (click)="Order()">My Order</button>
-<button *ngIf="role==0" (click)="OrdersC()">Orders</button>
-<button *ngIf="role==2" (click)="OrdersP()">Free Orders</button>
-<button *ngIf="role==2" (click)="OrdersPH()">Orders</button>
-<button *ngIf="role==1" (click)="OrdersA()">Orders</button>
-<button *ngIf="role!=-1" (click)="Profile()">Profile</button>
-<button *ngIf="role==1" (click)="Verification()">Verification</button>
+<nav class="navbar navbar-dark bg-dark">
+<button class="btn btn-dark" *ngIf="role==-1" (click)="Login()">Login</button>
+<button class="btn btn-dark" *ngIf="role==-1" (click)="Register()">Register</button>
+<button class="btn btn-dark" *ngIf="role!=-1" (click)="Logout()">Logout</button>
+<button class="btn btn-dark" *ngIf="role==1" (click)="Product()">Add Product</button>
+<button class="btn btn-dark" *ngIf="role==0" (click)="CreateOrder()">Create Order</button>
+<button class="btn btn-dark" *ngIf="role==0 || role == 2" (click)="Order()">My Order</button>
+<button class="btn btn-dark" *ngIf="role==0" (click)="OrdersC()">Orders</button>
+<button class="btn btn-dark" *ngIf="role==2" (click)="OrdersP()">Free Orders</button>
+<button class="btn btn-dark" *ngIf="role==2" (click)="OrdersPH()">Orders</button>
+<button class="btn btn-dark" *ngIf="role==1" (click)="OrdersA()">Orders</button>
+<button class="btn btn-dark" *ngIf="role!=-1" (click)="Profile()">Profile</button>
+<button class="btn btn-dark" *ngIf="role==1" (click)="Verification()">Verification</button>
+</nav>

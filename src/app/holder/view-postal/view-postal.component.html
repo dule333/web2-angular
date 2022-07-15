@@ -1,4 +1,4 @@
-<table>
+<table class="table">
     <thead>
         <th>Id</th>
         <th>Name</th>
@@ -17,8 +17,8 @@
             <td>{{item.email}}</td>    
             <td>{{item.isVerified}}</td>
             <td>{{status[item.verificationProgress!]}}</td>
-            <td *ngIf="item.verificationProgress == 0"><button (click)=Verify(item.id!)>Accept</button></td>
-            <td *ngIf="item.verificationProgress == 0"><button (click)=Decline(item.id!)>Decline</button></td>
+            <td *ngIf="item.verificationProgress == 0"><button class="btn btn-dark" (click)=Verify(item.id!)>Accept</button></td>
+            <td *ngIf="item.verificationProgress == 0"><button class="btn btn-dark" (click)=Decline(item.id!)>Decline</button></td>
         </tr>
     </tbody>
 </table>

@@ -1,6 +1,6 @@
 Free Orders:
 <br>
-<table>
+<table class="table">
     <thead>
         <th>Comment</th>
         <th>TotalPrice</th>
@@ -13,7 +13,7 @@ Free Orders:
             <td>{{item.totalPrice}}</td>
             <td>{{item.address}}</td>
             <td>{{item.endTime}}</td>
-            <td><button (click)=Reserve(item.id!)>Reserve</button></td>
+            <td><button class="btn btn-dark" (click)=Reserve(item.id!)>Reserve</button></td>
         </tr>
     </tbody>
 </table>

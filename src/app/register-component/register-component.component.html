@@ -29,13 +29,12 @@
     </div>
     <div>
         User Type:
-        <select formControlName="UserType">
+        <select class="form-control" formControlName="UserType">
             <option value="0">Customer</option>
             <option value="1">Admin</option>
             <option value="2">Postal</option>
         </select>
     </div>
-    <button (click)="onSubmit()">Register</button>
+    <button class="btn btn-dark" (click)="onSubmit()">Register</button>
   </form>
-  <a routerLink="../login" class="btn btn-link">Login</a>
     

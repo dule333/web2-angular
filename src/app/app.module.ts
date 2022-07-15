@@ -26,6 +26,7 @@ import { ReserveOrderComponent } from './reserve-order/reserve-order.component';
 import {JwtModule} from '@auth0/angular-jwt';
 import { AuthInterceptor } from './auth.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FacebookLoginProvider, SocialAuthService, SocialAuthServiceConfig } from 'angularx-social-login';
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -66,6 +67,19 @@ export function tokenGetter() {
     provide:HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi:true
+  },
+  SocialAuthService,  
+  {  
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('3283215405338196')
+        },
+      ],
+    } as SocialAuthServiceConfig,
   }],
   bootstrap: [AppComponent]
 })
